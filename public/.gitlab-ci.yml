@@ -1,0 +1,22 @@
+pages:
+  stage: deploy
+  image: alpine:latest
+
+  script:
+    # Create public directory required by GitLab Pages
+    - mkdir -p public
+
+    # Copy all static content to public
+    - cp -r nightcare public/
+    - cp -r speakify public/
+    - cp style.css public/
+
+    # (Optional) List files for debugging
+    - ls -R public
+
+  artifacts:
+    paths:
+      - public
+
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
