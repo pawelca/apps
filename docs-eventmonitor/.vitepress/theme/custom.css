@@ -1,0 +1,56 @@
+/**
+ * Airflow-inspired documentation chrome (scoped to VitePress shell).
+ * Accent: documentation green; strong sidebar / content separation.
+ */
+
+:root {
+  --vp-c-brand-1: #017cee;
+  --vp-c-brand-2: #0d8b4d;
+  --vp-c-brand-3: #0a6e3f;
+  --vp-c-brand-soft: rgba(13, 139, 77, 0.14);
+  --vp-layout-max-width: 1480px;
+  --vp-sidebar-width: 288px;
+  --vp-nav-height: 64px;
+}
+
+.dark {
+  --vp-c-brand-1: #4dabf7;
+  --vp-c-brand-2: #51cf66;
+  --vp-c-brand-3: #69db7c;
+  --vp-c-brand-soft: rgba(81, 207, 102, 0.16);
+}
+
+/* Slightly denser doc typography (Airflow-like) */
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.65;
+}
+
+.vp-doc h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Admonition-style blocks (::: info / tip / warning / danger) */
+.custom-block {
+  border-radius: 6px;
+  border-left-width: 4px;
+}
+
+.custom-block.info {
+  border-color: var(--vp-c-brand-2);
+  background-color: var(--vp-c-brand-soft);
+}
+
+/* Nav: clearer separation */
+.VPNav {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+/* Focus visibility for keyboard users */
+.VPSidebarItem .link:focus-visible,
+.VPNavBarMenuLink:focus-visible,
+.VPButton:focus-visible {
+  outline: 2px solid var(--vp-c-brand-2);
+  outline-offset: 2px;
+}

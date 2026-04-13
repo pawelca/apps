@@ -1,75 +1,112 @@
-# Apps Landing Page
+# Apps site
 
-This repository hosts the landing page and legal documents for my mobile applications.
+This repository hosts the landing page, legal/support pages for mobile apps, and **Event Monitor** documentation (Unity Editor tool).
 
 **Live at:** [https://pawelca.github.io/apps/](https://pawelca.github.io/apps/)
 
 ---
 
-## 📱 Apps
+## Event Monitor documentation
+
+Professional documentation (English) for **Event Monitor** lives in [`docs-eventmonitor/`](./docs-eventmonitor/) and is built with [VitePress](https://vitepress.dev/). The published site is served under **`/eventmonitor/`** on GitHub Pages (Airflow-inspired layout: sidebar, “On this page”, local search, light/dark).
+
+### Local preview
+
+Requires **Node.js 20+**.
+
+```bash
+npm install
+npm run docs:dev
+```
+
+Open the URL VitePress prints in the terminal (often `http://localhost:5173/` with a relative `base`).
+
+After a production build you can also run **`npm run docs:preview`** to serve the built output with the correct asset paths.
+
+### Production build
+
+Writes static HTML to `public/eventmonitor/` and runs [Pagefind](https://pagefind.app/) to emit a static index under `public/eventmonitor/pagefind/` (optional). The **search field** uses VitePress **local search** (no backend).
+
+```bash
+npm install
+npm run docs:build:all
+```
+
+The build runs **`scripts/patch-eventmonitor-assets.mjs`** so asset URLs become **relative** (`./assets/...`). That fixes:
+
+- opening **`index.html` directly** from disk (`file:///.../public/eventmonitor/index.html`), and  
+- hosting under **`https://pawelca.github.io/apps/eventmonitor/`** (no broken `/eventmonitor/...` paths that ignore the `/apps/` prefix).
+
+Do **not** open only the folder URL in the browser (directory listing); open **`index.html`** or use **`npm run docs:preview`**.
+
+Then commit the updated `public/eventmonitor/` directory, or rely on **GitHub Actions** (see below).
+
+### CI
+
+Workflow [`.github/workflows/eventmonitor-docs.yml`](./.github/workflows/eventmonitor-docs.yml) rebuilds docs when `docs-eventmonitor/` or `package.json` changes on `main`, and commits `public/eventmonitor/`. Pushes that **only** change generated files under `public/eventmonitor/` do not retrigger the workflow (avoids loops).
+
+You can also run it manually: **Actions → Build Event Monitor docs → Run workflow**.
+
+### Content source
+
+Product copy is aligned with the Unity package marketing/technical notes (`asset_store.md` in the Event Monitor repository). This site is the **canonical** English documentation for end users browsing the web.
+
+---
+
+## Mobile apps
 
 ### NightCare
-A privacy-first mobile application designed to help parents track newborn care in a calm, respectful way – especially during nighttime.
+
+Privacy-first mobile application for parents tracking newborn care.
 
 **Pages:**
+
 - [Privacy Policy](https://pawelca.github.io/apps/nightcare/privacy-policy.html)
 - [Terms of Service](https://pawelca.github.io/apps/nightcare/terms.html)
 - [Support](https://pawelca.github.io/apps/nightcare/support.html)
 
 ### Speakify
-Transform your voice into text with ease. A simple, powerful speech-to-text application for your daily needs.
 
-**Pages:**
-- [Privacy Policy](https://pawelca.github.io/apps/speakify/privacy-policy.html)
-- [Terms of Service](https://pawelca.github.io/apps/speakify/terms.html)
-- [Support](https://pawelca.github.io/apps/speakify/support.html)
+Speech-to-text application (pages in `public/speakify/` when enabled).
 
 ---
 
-## 🏗️ Structure
+## Structure
 
 ```
 apps/
-├── public/              # GitHub Pages serves from here
-│   ├── index.html      # Main landing page
-│   ├── style.css       # Shared styles
-│   ├── nightcare/      # NightCare app pages
-│   └── speakify/       # Speakify app pages
+├── docs-eventmonitor/       # VitePress source (Markdown + .vitepress/)
+├── .github/workflows/       # CI (Event Monitor docs build)
+├── package.json             # docs scripts + devDependencies
+├── public/                  # GitHub Pages root
+│   ├── index.html           # Landing (NightCare, Event Monitor, …)
+│   ├── style.css
+│   ├── eventmonitor/        # Generated — VitePress + Pagefind output
+│   ├── nightcare/
+│   └── speakify/
 └── README.md
 ```
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
-This site is automatically deployed via **GitHub Pages** from the `public/` directory.
+GitHub Pages serves the **`public/`** directory. Any push to `main` updates the live site within minutes.
 
-Any push to the `main` branch updates the live site within minutes.
+After changing documentation sources, either:
 
----
-
-## 🎨 Design
-
-- **Clean, modern design** inspired by Apple's design language
-- **Mobile-first** responsive layout
-- **Privacy-focused** messaging
-- Shared CSS for consistency across all pages
+- run `npm run docs:build:all` locally and commit `public/eventmonitor/`, or  
+- push source changes and let the **Build Event Monitor docs** workflow commit the output.
 
 ---
 
-## 📝 Adding a New App
+## Design
 
-1. Create a new folder in `public/your-app-name/`
-2. Add these pages:
-   - `privacy-policy.html`
-   - `terms.html`
-   - `support.html`
-3. Update `public/index.html` to include your app card
-4. Commit and push – done!
+- **Landing & legal pages:** clean, mobile-first layout (shared `style.css`).
+- **Event Monitor docs:** VitePress default theme + [`custom.css`](./docs-eventmonitor/.vitepress/theme/custom.css) (documentation green accent, Airflow-style information density).
 
 ---
 
-## 📄 License
+## License
 
 © 2025 Pawelca Apps. All rights reserved.
-

@@ -54,6 +54,10 @@
       background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     }
 
+    .app-card.eventmonitor .app-icon {
+      background: linear-gradient(135deg, #0d4f3c 0%, #0d8b4d 55%, #12a362 100%);
+    }
+
     .app-title {
       font-size: 24px;
       font-weight: 600;
@@ -124,7 +128,7 @@
     
     <div class="main-header">
       <h1 class="main-title">My Apps</h1>
-      <p class="main-subtitle">Privacy-first mobile applications</p>
+      <p class="main-subtitle">Privacy-first mobile apps &amp; developer tools</p>
     </div>
 
     <div class="apps-grid">
@@ -143,6 +147,19 @@
           <a href="nightcare/support.html" class="app-link">Support</a>
         </div>
       </div>
+
+      <!-- Event Monitor -->
+      <a href="eventmonitor/" class="app-card eventmonitor">
+        <div class="app-icon">📡</div>
+        <h2 class="app-title">Event Monitor</h2>
+        <p class="app-description">
+          Unity Editor tool: automatic tracing of C# event subscriptions, unsubscriptions,
+          and invocations — Redux-style timeline, live subscribers, and time travel. No manual instrumentation.
+        </p>
+        <div class="app-links">
+          <span class="app-link">Documentation →</span>
+        </div>
+      </a>
 
       <!-- Speakify -->
       <!-- <div class="app-card speakify">
