@@ -2,14 +2,14 @@
 
 ## Unity version
 
-Event Monitor is built and tested with **Unity 6 LTS** (for example `6000.3.7f1`). The package relies on Unity’s **IL Post-Processor** pipeline, which is available in modern Unity versions. If you use an older editor, verify ILPP support before relying on automatic instrumentation.
+Event Monitor is tested on **Unity 6 LTS** (`6000.3.7f1`) and **Unity `2022.3.62f3`**. The package relies on Unity’s **IL Post-Processor** pipeline.
 
 ## Compatibility matrix (tested)
 
-| Unity version | Status | Notes |
-|---------------|--------|-------|
-| `6000.3.7f1` | Supported | Primary target (Unity 6 LTS) |
-| `2022.3.62f3` | Supported | Verified by import and runtime test |
+| Unity version | Status |
+|---------------|--------|
+| `6000.3.7f1` | Supported |
+| `2022.3.62f3` | Supported |
 
 ## Install via UPM (copy-paste)
 

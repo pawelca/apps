@@ -29,7 +29,7 @@ features:
 Event Monitor is a **Unity Editor** tool for teams that rely on **C# events** for gameplay, UI, or architecture. It answers questions such as:
 
 ::: info Version note
-This documentation targets recent Event Monitor builds on Unity 6 LTS. If you run an older package/editor combination, some ILPP behavior may differ.
+Event Monitor is tested on both Unity 6 LTS (`6000.3.7f1`) and Unity `2022.3.62f3`. See the compatibility table in [Installation](./guide/installation).
 :::
 
 - Who subscribed to this event, and from which type and method?
