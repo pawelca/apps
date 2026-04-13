@@ -13,13 +13,7 @@ public sealed class DemoPlayerBus : MonoBehaviour
     public event Action OnPlayerJump;
     public event Action<int> OnPlayerDamage;
 
-    public void TriggerJump()
-    {
-        var h = OnPlayerJump;
-        if (h != null)
-            h.Invoke();
-    }
-
+    public void TriggerJump() => OnPlayerJump?.Invoke();
     public void TriggerDamage(int damage = 10) => OnPlayerDamage?.Invoke(damage);
 }
 ```
@@ -28,6 +22,8 @@ What Event Monitor logs automatically:
 
 - `SUB` and `UNSUB` when handlers are added/removed
 - `INVOKE` when `TriggerJump()` / `TriggerDamage()` fire (for supported IL patterns)
+
+`?.Invoke(...)` is the preferred, clean default style for users.
 
 ## 2) Event listener (subscriber)
 
@@ -95,3 +91,77 @@ You should see a sequence like: `SUB` rows (on enable), then `INVOKE`, then `UNS
 ## Demo parity
 
 This example is directly based on the demo classes used in the package (`PromoDemoPlayerBus`, `PromoDemoUiListener`), but reduced to the cleanest version for copy/paste.
+
+If you ever hit a very specific IL edge case in your project, you can switch to the explicit local-copy invoke pattern, but most users should not need that.
+
+## Extra case: custom payload class (`Action<TPayload>`)
+
+Use this pattern when you want to pass structured data instead of a primitive.
+
+```csharp
+using System;
+using UnityEngine;
+
+[Serializable]
+public sealed class DamageInfo
+{
+    public int Amount;
+    public string Source;
+    public bool Critical;
+}
+
+public sealed class CombatBus : MonoBehaviour
+{
+    public event Action<DamageInfo> OnDamageTaken;
+
+    public void TriggerDamage(int amount, string source, bool critical)
+    {
+        var payload = new DamageInfo
+        {
+            Amount = amount,
+            Source = source,
+            Critical = critical
+        };
+
+        OnDamageTaken?.Invoke(payload);
+    }
+}
+```
+
+Subscriber example:
+
+```csharp
+using UnityEngine;
+
+public sealed class CombatHudListener : MonoBehaviour
+{
+    [SerializeField] private CombatBus _combatBus;
+
+    private void OnEnable()
+    {
+        if (_combatBus == null) _combatBus = FindFirstObjectByType<CombatBus>();
+        if (_combatBus != null) _combatBus.OnDamageTaken += OnDamageTaken;
+    }
+
+    private void OnDisable()
+    {
+        if (_combatBus != null) _combatBus.OnDamageTaken -= OnDamageTaken;
+    }
+
+    private static void OnDamageTaken(DamageInfo info)
+    {
+        Debug.Log($"Damage: {info.Amount}, source: {info.Source}, crit: {info.Critical}");
+    }
+}
+```
+
+### Optional: payload tagging for helper/dispatcher paths
+
+When your invocation goes through custom dispatchers and INVOKE rows are missing, tag payload explicitly right before firing:
+
+```csharp
+EventBus.TagPayload(payload);
+OnDamageTaken?.Invoke(payload);
+```
+
+This is usually not required for normal `?.Invoke(...)` paths, but helps in non-standard flows.

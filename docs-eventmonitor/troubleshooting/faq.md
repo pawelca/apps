@@ -1,5 +1,21 @@
 # Troubleshooting & FAQ
 
+## Quick triage flow
+
+1. **No rows at all?** -> Check Play Mode, Record toggle, and `recordingEnabled`
+2. **SUB/UNSUB only?** -> Verify INVOKE path and IL pattern support
+3. **INVOKE missing for one event?** -> Check filters, subscribers present, and assembly instrumentation
+4. **Payload missing?** -> Enable Payload toggle, then use `TagPayload` for custom dispatcher flows
+5. **Still broken?** -> Enable ILPP diagnostics and inspect per-assembly summary in Console
+
+## Quick triage flow
+
+1. **No rows at all?** -> Check Play Mode, Record toggle, and `recordingEnabled`
+2. **SUB/UNSUB only?** -> Verify INVOKE path and IL pattern support
+3. **INVOKE missing for one event?** -> Check filters, subscribers present, and assembly instrumentation
+4. **Payload missing?** -> Enable Payload toggle, then use `TagPayload` for custom dispatcher flows
+5. **Still broken?** -> Enable ILPP diagnostics and inspect per-assembly summary in Console
+
 ## I see no rows at all
 
 1. **Play Mode** — Event Monitor is aimed at Play sessions (timestamps and frame info assume runtime).
@@ -27,6 +43,18 @@
 
 - Keep **Payload** and **Stack Traces** off unless needed.
 - Avoid **Payload Details** on large object graphs during long Play sessions.
+
+## Performance budget (recommended defaults)
+
+- Daily development: **Record ON**, **Payload OFF**, **Stack Traces OFF**
+- Focused bug hunt: enable **Payload** or **Stack Traces** temporarily
+- Long sessions: periodically export + clear log to keep memory usage predictable
+
+## Performance budget (recommended defaults)
+
+- Daily development: **Record ON**, **Payload OFF**, **Stack Traces OFF**
+- Focused bug hunt: enable **Payload** or **Stack Traces** temporarily
+- Long sessions: periodically export + clear log to keep memory usage predictable
 
 ## Where is the demo scene?
 

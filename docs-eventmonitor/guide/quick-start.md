@@ -33,7 +33,17 @@ Use the toggles to filter by action type. Use the search field to narrow by even
 
 ### 5. Inspect subscribers
 
-Open the **Subscribers** tab to see the **current** listener graph: `OwnerType :: EventName → SubscriberType :: MethodName`.
+Open the **Subscribers** tab to see the **current** listener graph: `OwnerType :: EventName -> SubscriberType :: MethodName`.
+
+## Expected first log (golden path)
+
+For a standard MonoBehaviour listener lifecycle, the first healthy sequence usually looks like:
+
+1. `OnEnable` subscribes -> one or more **SUB** rows
+2. Trigger method calls `?.Invoke(...)` -> **INVOKE** row
+3. `OnDisable` unsubscribes -> **UNSUB** row
+
+If your log does not follow this baseline, check [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke) first.
 
 ### 6. Try time travel (optional)
 

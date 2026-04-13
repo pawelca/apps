@@ -2,6 +2,16 @@
 
 Event Monitor’s **INVOKE** instrumentation is **pattern-based**. Typical C# event usage works well; indirection does not.
 
+## Support matrix
+
+| Pattern | Supported | Notes |
+|--------|-----------|-------|
+| `MyEvent?.Invoke(args)` | Usually yes | Recommended default style |
+| Local copy + `Invoke` | Usually yes | Fallback style for edge IL cases |
+| Custom dispatcher helper | Maybe | Depends on emitted IL shape |
+| Reflection (`DynamicInvoke`) | Usually no | Not a direct event invoke pattern |
+| Obfuscated/generated unusual IL | Maybe | Verify with ILPP diagnostics |
+
 ## Patterns that usually work
 
 - `MyEvent?.Invoke(...)`

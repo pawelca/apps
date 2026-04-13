@@ -31,6 +31,7 @@ export default defineConfig({
       { text: 'Overview', link: '/' },
       { text: 'Quick Start', link: '/guide/quick-start' },
       { text: 'Minimal code example', link: '/guide/code-example' },
+      { text: 'Import checklist', link: '/guide/import-checklist' },
       { text: 'Installation', link: '/guide/installation' },
       {
         text: 'Core concepts',

@@ -42,6 +42,16 @@ ILPP discovers the project root from **reference paths** (for example paths cont
 
 Disable diagnostics again for quieter compiles once you are satisfied.
 
+## Assembly coverage checklist
+
+Use this quick checklist when events are not appearing:
+
+1. Is your gameplay code in a **user assembly** (`Assembly-CSharp` or your asmdef), not Unity/system assemblies?
+2. Is `recordingEnabled` set to `true`?
+3. Did Unity actually recompile after the setting/code change?
+4. Is `ilppDiagnosticsEnabled` enabled so you can see ILPP summary lines in Console?
+5. Do diagnostics show your target assembly with non-zero SUB/UNSUB/INVOKE injection counts?
+
 ## See also
 
 - [ILPP settings (JSON) reference](../reference/ilpp-settings)
