@@ -5,15 +5,16 @@ export default defineConfig({
   description:
     'Automatic C# event tracing for Unity — subscriptions, unsubscriptions, and invocations with zero manual instrumentation.',
   lang: 'en-US',
-  // Relative base so assets resolve under file:// and under https://user.github.io/apps/eventmonitor/
-  base: './',
+  // GitHub Pages path for this repository deployment.
+  // Site URL: https://pawelca.github.io/apps/public/eventmonitor/
+  base: '/apps/public/eventmonitor/',
   outDir: '../public/eventmonitor',
   cleanUrls: false,
 
-  head: [['link', { rel: 'icon', href: './favicon.svg', type: 'image/svg+xml' }]],
+  head: [['link', { rel: 'icon', href: '/apps/public/eventmonitor/favicon.svg', type: 'image/svg+xml' }]],
 
   themeConfig: {
-    logo: './favicon.svg',
+    logo: '/apps/public/eventmonitor/favicon.svg',
 
     nav: [
       { text: 'Home', link: '/' },

@@ -8,7 +8,7 @@ This repository hosts the landing page, legal/support pages for mobile apps, and
 
 ## Event Monitor documentation
 
-Professional documentation (English) for **Event Monitor** lives in [`docs-eventmonitor/`](./docs-eventmonitor/) and is built with [VitePress](https://vitepress.dev/). The published site is served under **`/eventmonitor/`** on GitHub Pages (Airflow-inspired layout: sidebar, “On this page”, local search, light/dark).
+Professional documentation (English) for **Event Monitor** lives in [`docs-eventmonitor/`](./docs-eventmonitor/) and is built with [VitePress](https://vitepress.dev/). The published site is served under **`/apps/public/eventmonitor/`** on GitHub Pages (Airflow-inspired layout: sidebar, “On this page”, local search, light/dark).
 
 ### Local preview
 
@@ -19,7 +19,7 @@ npm install
 npm run docs:dev
 ```
 
-Open the URL VitePress prints in the terminal (often `http://localhost:5173/` with a relative `base`).
+Open the URL VitePress prints in the terminal (typically `http://localhost:5173/apps/public/eventmonitor/`).
 
 After a production build you can also run **`npm run docs:preview`** to serve the built output with the correct asset paths.
 
@@ -32,12 +32,11 @@ npm install
 npm run docs:build:all
 ```
 
-The build runs **`scripts/patch-eventmonitor-assets.mjs`** so asset URLs become **relative** (`./assets/...`). That fixes:
+The site is built for hosting under:
 
-- opening **`index.html` directly** from disk (`file:///.../public/eventmonitor/index.html`), and  
-- hosting under **`https://pawelca.github.io/apps/eventmonitor/`** (no broken `/eventmonitor/...` paths that ignore the `/apps/` prefix).
+- `https://pawelca.github.io/apps/public/eventmonitor/`
 
-Do **not** open only the folder URL in the browser (directory listing); open **`index.html`** or use **`npm run docs:preview`**.
+Do not test this build by opening `file:///.../public/eventmonitor/index.html` directly; use `npm run docs:preview` or the deployed URL above.
 
 Then commit the updated `public/eventmonitor/` directory, or rely on **GitHub Actions** (see below).
 
