@@ -82,7 +82,7 @@ To enable `Tools/Event Monitor/Generate Demo Scene`:
 3. Open the **Samples** tab
 4. Click **Import** on **Demo Scene Generator**
 
-![Package Manager Samples import flow](/apps/public/eventmonitor/images/package-manager-samples-import.png)
+![Package Manager Samples import flow](/images/package-manager-samples-import.png)
 
 ## Next step
 
