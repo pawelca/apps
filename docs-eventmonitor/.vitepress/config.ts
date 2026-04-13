@@ -30,6 +30,7 @@ export default defineConfig({
     sidebar: [
       { text: 'Overview', link: '/' },
       { text: 'Quick Start', link: '/guide/quick-start' },
+      { text: 'Minimal code example', link: '/guide/code-example' },
       { text: 'Installation', link: '/guide/installation' },
       {
         text: 'Core concepts',

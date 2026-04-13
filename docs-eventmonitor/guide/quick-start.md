@@ -54,5 +54,6 @@ Then Play, click the labeled buttons, and match **INVOKE** lines to the on-scree
 ## See also
 
 - [Installation](./installation)
+- [Minimal code example](./code-example)
 - [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke)
 - [Troubleshooting & FAQ](../troubleshooting/faq)
