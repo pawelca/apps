@@ -62,6 +62,7 @@ export default defineConfig({
           { text: 'IL patterns and limitations', link: '/reference/il-limitations' },
         ],
       },
+      { text: 'Support', link: '/troubleshooting/support' },
       { text: 'Troubleshooting & FAQ', link: '/troubleshooting/faq' },
       { text: 'Best practices', link: '/best-practices' },
     ],

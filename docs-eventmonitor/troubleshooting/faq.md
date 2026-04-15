@@ -1,5 +1,7 @@
 # Troubleshooting & FAQ
 
+Need direct support? Use the [Support page](./support) and submit a structured ticket.
+
 ## Quick triage flow
 
 1. **No rows at all?** -> Check Play Mode, Record toggle, and `recordingEnabled`
