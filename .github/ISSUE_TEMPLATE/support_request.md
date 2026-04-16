@@ -18,9 +18,9 @@ Short description of the issue in 1-2 sentences.
 - Affected assemblies (if known):
 
 ## 3) Impact
-- Severity: [Critical | High | Medium | Low]
-- Scope: [Single developer | Team | CI | Production debugging]
+- Scope: [Single developer | Team | CI | Other]
 - Frequency: [Always | Often | Rarely | Once]
+
 
 ## 4) Reproduction steps
 1.

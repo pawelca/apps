@@ -4,7 +4,7 @@ If you need help with Event Monitor, use the support ticket format below. Struct
 
 ## Preferred support channel
 
-- Open a GitHub Issue: [Create Support Ticket](https://github.com/pawelca/EventMonitor2.0/issues/new?template=support_request.md)
+- Open a GitHub Issue: [Create Support Ticket](https://github.com/pawelca/apps/issues/new?template=support_request.md)
 - Fallback email: [pawel.ciesla89@gmail.com](mailto:pawel.ciesla89@gmail.com)
 
 ## Before you submit
@@ -31,8 +31,7 @@ Short description of the issue in 1-2 sentences.
 - Affected assemblies (if known):
 
 ### 3) Impact
-- Severity: [Critical | High | Medium | Low]
-- Scope: [Single developer | Team | CI | Production debugging]
+- Scope: [Single developer | Team | CI | Other]
 - Frequency: [Always | Often | Rarely | Once]
 
 ### 4) Reproduction steps
