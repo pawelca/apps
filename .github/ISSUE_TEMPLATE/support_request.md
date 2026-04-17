@@ -1,7 +1,7 @@
 ---
 name: Support request
 about: Report a support case with reproducible details
-title: "[Support] "
+title: "[Event Monitor] "
 labels: ["support", "needs-triage"]
 assignees: []
 ---
@@ -17,34 +17,29 @@ Short description of the issue in 1-2 sentences.
 - Build target:
 - Affected assemblies (if known):
 
-## 3) Impact
-- Scope: [Single developer | Team | CI | Other]
-- Frequency: [Always | Often | Rarely | Once]
-
-
-## 4) Reproduction steps
+## 3) Reproduction steps
 1.
 2.
 3.
 
-## 5) Expected behavior
+## 4) Expected behavior
 What should happen?
 
-## 6) Actual behavior
+## 5) Actual behavior
 What happens instead?
 
-## 7) Evidence
+## 6) Evidence
 - Console logs:
 - Event Monitor log export:
 - Screenshot/video:
 - Minimal repro project/link:
 
-## 8) ILPP diagnostics
+## 7) ILPP diagnostics
 - Enabled diagnostics: [Yes/No]
 - Key diagnostic lines:
 
-## 9) Workarounds tried
+## 8) Workarounds tried
 What have you already attempted?
 
-## 10) Additional context
+## 9) Additional context
 Any extra details that may help triage.

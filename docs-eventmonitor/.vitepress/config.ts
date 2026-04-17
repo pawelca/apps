@@ -21,6 +21,7 @@ export default defineConfig({
       { text: 'Quick Start', link: '/guide/quick-start' },
       { text: 'Concepts', link: '/concepts/event-bus-and-records' },
       { text: 'Reference', link: '/reference/event-bus-api' },
+      { text: 'Support', link: '/troubleshooting/support' },
       {
         text: 'Apps',
         link: 'https://pawelca.github.io/apps/',
