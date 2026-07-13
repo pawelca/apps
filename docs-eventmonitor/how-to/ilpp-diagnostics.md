@@ -26,9 +26,7 @@ Example:
 }
 ```
 
-::: info EditorPrefs vs JSON
-Toolbar toggles may sync settings into this JSON for ILPP (implementation-specific). If behavior disagrees with the file, check both the window and `Library/EventMonitor/ilpp_settings.json`.
-:::
+> **Note — EditorPrefs vs JSON:** Toolbar toggles may sync settings into this JSON for ILPP (implementation-specific). If behavior disagrees with the file, check both the window and `Library/EventMonitor/ilpp_settings.json`.
 
 ## Project root resolution
 
@@ -54,5 +52,5 @@ Use this quick checklist when events are not appearing:
 
 ## See also
 
-- [ILPP settings (JSON) reference](../reference/ilpp-settings)
-- [Troubleshooting & FAQ](../troubleshooting/faq)
+- [ILPP settings (JSON) reference](../reference/ilpp-settings.md)
+- [Troubleshooting & FAQ](../troubleshooting/faq.md)

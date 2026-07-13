@@ -22,6 +22,10 @@ features:
     details: Inspect the current graph of listeners per event, with optional time-travel replay of subscriber state.
   - title: Optional payloads
     details: Capture invocation arguments when you need them; keep overhead low when you do not.
+  - title: Session save/load & compare
+    details: Export `.emsession.json`, reload read-only sessions, and compare two captures with per-event deltas.
+  - title: Diagnostics toolkit
+    details: Leak detection, invoke timing, exception breadcrumbs, growth alerts, diff view, and manual re-fire.
 ---
 
 ## What is Event Monitor?
@@ -50,4 +54,4 @@ Event Monitor is a **development-time** observability tool inside the Editor. It
 
 - Follow the [Quick Start](./guide/quick-start) to open the window and read your first records.
 - See [Installation](./guide/installation) for Unity version and package requirements.
-- Browse [How-to guides](./how-to/payload-capture) for payloads, ILPP diagnostics, and exports.
+- Browse [How-to guides](./how-to/payload-capture) for payloads, ILPP diagnostics, exports, [session save/load](./how-to/session-save-load), [leak detection](./how-to/leak-detection), [invoke timing](./how-to/invoke-timing), [exception breadcrumbs](./how-to/exception-breadcrumbs), and [subscriber growth alerts](./how-to/subscriber-growth-alerts).

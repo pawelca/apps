@@ -4,11 +4,11 @@ Event Monitor can observe subscriptions from two mechanisms. They complement eac
 
 ## IL Post-Processor (ILPP)
 
-After compilation, Event Monitor’s **ILPP** rewrites eligible assemblies to inject calls at:
+After compilation, Event Monitor's **ILPP** rewrites eligible assemblies to inject calls at:
 
 - Event **add** accessors (`+=`)
 - Event **remove** accessors (`-=`)
-- Common **invocation** sites (see [IL patterns and limitations](../reference/il-limitations))
+- Common **invocation** sites (see [IL patterns and limitations](../reference/il-limitations.md))
 
 **Pros**
 
@@ -46,5 +46,5 @@ For a clean mental model:
 
 ## See also
 
-- [ILPP diagnostics and settings](../how-to/ilpp-diagnostics)
-- [IL patterns and limitations](../reference/il-limitations)
+- [ILPP diagnostics and settings](../how-to/ilpp-diagnostics.md)
+- [IL patterns and limitations](../reference/il-limitations.md)

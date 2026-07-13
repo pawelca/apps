@@ -1,14 +1,6 @@
 # Troubleshooting & FAQ
 
-Need direct support? Use the [Support page](./support) and submit a structured ticket.
-
-## Quick triage flow
-
-1. **No rows at all?** -> Check Play Mode, Record toggle, and `recordingEnabled`
-2. **SUB/UNSUB only?** -> Verify INVOKE path and IL pattern support
-3. **INVOKE missing for one event?** -> Check filters, subscribers present, and assembly instrumentation
-4. **Payload missing?** -> Enable Payload toggle, then use `TagPayload` for custom dispatcher flows
-5. **Still broken?** -> Enable ILPP diagnostics and inspect per-assembly summary in Console
+Need direct support? Use the [Support page](./support.md) and submit a structured ticket.
 
 ## Quick triage flow
 
@@ -22,18 +14,18 @@ Need direct support? Use the [Support page](./support) and submit a structured t
 
 1. **Play Mode** — Event Monitor is aimed at Play sessions (timestamps and frame info assume runtime).
 2. **Record** — Ensure the toolbar **Record** toggle is on.
-3. **ILPP** — Confirm `recordingEnabled` is not `false` in `Library/EventMonitor/ilpp_settings.json`. Enable [ILPP diagnostics](../how-to/ilpp-diagnostics) and recompile.
+3. **ILPP** — Confirm `recordingEnabled` is not `false` in `Library/EventMonitor/ilpp_settings.json`. Enable [ILPP diagnostics](../how-to/ilpp-diagnostics.md) and recompile.
 4. **Code path** — Trigger a known `+=` or `?.Invoke()` in an **instrumented** assembly.
 
 ## SUB appears but INVOKE never does
 
 - **Null delegate** — `?.Invoke()` does not call `Invoke` when there are no subscribers; no injection site runs.
-- **Filter** — Clear the log **search** field; disable overly narrow filters. See [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke).
-- **Pattern** — Firing through helpers may skip the injector. See [IL patterns and limitations](../reference/il-limitations).
+- **Filter** — Clear the log **search** field; disable overly narrow filters. See [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke.md).
+- **Pattern** — Firing through helpers may skip the injector. See [IL patterns and limitations](../reference/il-limitations.md).
 
-## Duplicate or “extra” SUB/UNSUB lines
+## Duplicate or "extra" SUB/UNSUB lines
 
-**ReflectionScanner** plus ILPP can both observe subscription changes. See [ILPP vs ReflectionScanner](../concepts/ilpp-vs-reflection-scanner).
+**ReflectionScanner** plus ILPP can both observe subscription changes. See [ILPP vs ReflectionScanner](../concepts/ilpp-vs-reflection-scanner.md).
 
 ## Payload always empty
 
@@ -52,16 +44,10 @@ Need direct support? Use the [Support page](./support) and submit a structured t
 - Focused bug hunt: enable **Payload** or **Stack Traces** temporarily
 - Long sessions: periodically export + clear log to keep memory usage predictable
 
-## Performance budget (recommended defaults)
-
-- Daily development: **Record ON**, **Payload OFF**, **Stack Traces OFF**
-- Focused bug hunt: enable **Payload** or **Stack Traces** temporarily
-- Long sessions: periodically export + clear log to keep memory usage predictable
-
 ## Where is the demo scene?
 
-**Tools → Event Monitor → Generate Demo Scene** — see [Generate the demo scene](../how-to/demo-scene).
+**Tools → Event Monitor → Generate Demo Scene** — see [Generate the demo scene](../how-to/demo-scene.md).
 
 ## Full documentation index
 
-Start at [Overview](/) or [Quick Start](../guide/quick-start).
+Start at [Overview](../index.md) or [Quick Start](../guide/quick-start.md).

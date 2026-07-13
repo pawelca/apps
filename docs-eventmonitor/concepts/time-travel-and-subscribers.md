@@ -4,7 +4,7 @@
 
 In the **Log** tab, after you **select a row**, you can enable **Time Travel** and move the slider. Event Monitor **replays SUB and UNSUB records only** from the start of the session up to the chosen index and rebuilds the **subscriber graph** shown on the **Subscribers** tab.
 
-So at any scrub position you can ask: *“Who was subscribed to each event at this point in the timeline?”*
+So at any scrub position you can ask: *"Who was subscribed to each event at this point in the timeline?"*
 
 ## What time travel does not do
 
@@ -23,5 +23,5 @@ With time travel **off**, **Subscribers** shows **live** state (current handlers
 
 ## See also
 
-- [Event bus and records](./event-bus-and-records)
-- [Quick Start](../guide/quick-start)
+- [Event bus and records](./event-bus-and-records.md)
+- [Quick Start](../guide/quick-start.md)

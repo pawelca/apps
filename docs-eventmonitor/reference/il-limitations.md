@@ -1,6 +1,6 @@
 # IL patterns and limitations
 
-Event Monitor’s **INVOKE** instrumentation is **pattern-based**. Typical C# event usage works well; indirection does not.
+Event Monitor's **INVOKE** instrumentation is **pattern-based**. Typical C# event usage works well; indirection does not.
 
 ## Support matrix
 
@@ -25,11 +25,11 @@ if (h != null)
 
 ## Patterns that may not be tracked
 
-- Invocation through a **custom dispatcher** that does not expose a direct `Invoke` call matching the injector’s rules.
+- Invocation through a **custom dispatcher** that does not expose a direct `Invoke` call matching the injector's rules.
 - **Reflection-based** `Delegate.DynamicInvoke` or similar.
 - **Non-standard** IL produced by source generators or obfuscators (case-by-case).
 
-If a fire is missing, confirm with [ILPP diagnostics](../how-to/ilpp-diagnostics) and consider restructuring the hot path or using `TagPayload` + manual `RecordInvoke` only for diagnostics.
+If a fire is missing, confirm with [ILPP diagnostics](../how-to/ilpp-diagnostics.md) and consider restructuring the hot path or using `TagPayload` + manual `RecordInvoke` only for diagnostics.
 
 ## Custom event accessors
 
@@ -53,5 +53,5 @@ Some Unity versions have edge cases with **lambda** subscriptions (`event += _ =
 
 ## See also
 
-- [ILPP vs ReflectionScanner](../concepts/ilpp-vs-reflection-scanner)
-- [Troubleshooting & FAQ](../troubleshooting/faq)
+- [ILPP vs ReflectionScanner](../concepts/ilpp-vs-reflection-scanner.md)
+- [Troubleshooting & FAQ](../troubleshooting/faq.md)

@@ -10,9 +10,7 @@ Characteristics:
 - **Thread safety** — internal locking around the ring and derived structures used by the UI.
 - **Editor-oriented** — designed for Play Mode debugging, not shipping player builds as a telemetry bus.
 
-::: tip
-Treat `EventBus` as an implementation detail for **reading** in custom tooling if you must; prefer the **Event Monitor** window for day-to-day use.
-:::
+> **Tip:** Treat `EventBus` as an implementation detail for **reading** in custom tooling if you must; prefer the **Event Monitor** window for day-to-day use.
 
 ## EventRecord
 
@@ -37,12 +35,10 @@ Alongside the ring, the bus maintains a **live** map keyed by `OwnerTypeName::Ev
 - **Subscriber count** on **INVOKE** rows (without re-reading delegate fields in injected IL).
 - The **Subscribers** tab and time-travel replay.
 
-::: warning
-The live map key does **not** include instance id. Multiple instances of the same owner type share one bucket per event name for counting purposes. Instance id still appears on individual records for context.
-:::
+> **Warning:** The live map key does **not** include instance id. Multiple instances of the same owner type share one bucket per event name for counting purposes. Instance id still appears on individual records for context.
 
 ## See also
 
-- [ILPP vs ReflectionScanner](./ilpp-vs-reflection-scanner)
-- [Time travel and subscribers](./time-travel-and-subscribers)
-- [EventBus API reference](../reference/event-bus-api)
+- [ILPP vs ReflectionScanner](./ilpp-vs-reflection-scanner.md)
+- [Time travel and subscribers](./time-travel-and-subscribers.md)
+- [EventBus API reference](../reference/event-bus-api.md)

@@ -9,7 +9,7 @@ If you need help with Event Monitor, use the support ticket format below. Struct
 ## Before you submit
 
 - Reproduce the issue at least once.
-- Check basic triage in [Troubleshooting & FAQ](./faq).
+- Check basic triage in [Troubleshooting & FAQ](./faq.md).
 - Collect Console logs and Event Monitor export if possible.
 - Prepare minimal reproduction steps.
 

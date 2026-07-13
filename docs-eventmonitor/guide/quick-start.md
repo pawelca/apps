@@ -4,7 +4,7 @@ This guide gets you from zero to a readable **SUB / INVOKE / UNSUB** timeline in
 
 ## Prerequisites
 
-- Unity project with Event Monitor installed (see [Installation](./installation)).
+- Unity project with Event Monitor installed (see [Installation](./installation.md)).
 - You are comfortable entering **Play Mode** in the Editor.
 
 ## Steps
@@ -27,7 +27,7 @@ Open the **Log** tab. You should see rows such as:
 
 - **SUB** — something subscribed to an event.
 - **UNSUB** — something unsubscribed.
-- **INVOKE** — an instrumented invocation ran (see [IL patterns and limitations](../reference/il-limitations) if a fire is missing).
+- **INVOKE** — an instrumented invocation ran (see [IL patterns and limitations](../reference/il-limitations.md) if a fire is missing).
 
 Use the toggles to filter by action type. Use the search field to narrow by event name, owner type, or subscriber type.
 
@@ -43,7 +43,7 @@ For a standard MonoBehaviour listener lifecycle, the first healthy sequence usua
 2. Trigger method calls `?.Invoke(...)` -> **INVOKE** row
 3. `OnDisable` unsubscribes -> **UNSUB** row
 
-If your log does not follow this baseline, check [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke) first.
+If your log does not follow this baseline, check [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke.md) first.
 
 ### 6. Try time travel (optional)
 
@@ -53,17 +53,35 @@ Select a row in the **Log**, enable **Time Travel**, and scrub the slider. Open 
 
 Choose a format in the toolbar and use **Copy Log** to copy the filtered timeline to the clipboard.
 
+### 8. Advanced features (1.1+)
+
+After the basics work, explore:
+
+| Feature | Where | Guide |
+|---------|-------|-------|
+| Save / load timeline | Toolbar **Save…** / **Load…** | [Session save/load](../how-to/session-save-load.md) |
+| Subscriber diff | **Subscribers** tab, pin row A | [Diff view](../how-to/diff-view.md) |
+| Re-fire event | **Log** detail **⚡ Re-fire** | [Manual dispatch](../how-to/manual-dispatch.md) |
+| Leaks | **Stats** → Leaks | [Leak detection](../how-to/leak-detection.md) |
+| Invoke duration | Toolbar **⏱ Timing** | [Invoke timing](../how-to/invoke-timing.md) |
+| Assembly scope | Toolbar **⚙ Assemblies** | [Assembly filters](../how-to/assembly-filters.md) |
+| Compare `.emsession.json` | **Stats** compare | [Compare sessions](../how-to/compare-sessions.md) |
+| Exception context | **Exceptions** tab | [Exception breadcrumbs](../how-to/exception-breadcrumbs.md) |
+| Runaway subscribers | **Growth Alerts** tab | [Subscriber growth alerts](../how-to/subscriber-growth-alerts.md) |
+
+The [demo scene](../how-to/demo-scene.md) includes buttons for leaks, growth, timing, exceptions, and diff view.
+
 ## Demo scene
 
 The fastest way to see realistic traffic is the one-click demo:
 
 **Tools → Event Monitor → Generate Demo Scene**
 
-Then Play, click the labeled buttons, and match **INVOKE** lines to the on-screen hints. See [Generate the demo scene](../how-to/demo-scene).
+Then Play, click the labeled buttons, and match **INVOKE** lines to the on-screen hints. See [Generate the demo scene](../how-to/demo-scene.md).
 
 ## See also
 
-- [Installation](./installation)
-- [Minimal code example](./code-example)
-- [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke)
-- [Troubleshooting & FAQ](../troubleshooting/faq)
+- [Installation](./installation.md)
+- [Minimal code example](./code-example.md)
+- [Filtering and missing INVOKE rows](../how-to/filtering-and-missing-invoke.md)
+- [Troubleshooting & FAQ](../troubleshooting/faq.md)

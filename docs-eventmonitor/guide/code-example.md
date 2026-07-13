@@ -160,6 +160,10 @@ public sealed class CombatHudListener : MonoBehaviour
 When your invocation goes through custom dispatchers and INVOKE rows are missing, tag payload explicitly right before firing:
 
 ```csharp
+using EventMonitor.Runtime;
+
+// ...
+
 EventBus.TagPayload(payload);
 OnDamageTaken?.Invoke(payload);
 ```

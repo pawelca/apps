@@ -18,10 +18,10 @@
 
 ## Workflow
 
-- Use **filters** deliberately; **clear** the search field when something “disappears” from the list.
+- Use **filters** deliberately; **clear** the search field when something "disappears" from the list.
 - Use **time travel** when you need **who was subscribed at moment X**, not when you need raw invoke ordering only.
 
 ## See also
 
-- [Troubleshooting & FAQ](./troubleshooting/faq)
-- [IL patterns and limitations](./reference/il-limitations)
+- [Troubleshooting & FAQ](./troubleshooting/faq.md)
+- [IL patterns and limitations](./reference/il-limitations.md)

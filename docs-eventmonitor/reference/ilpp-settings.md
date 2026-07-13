@@ -12,7 +12,7 @@ Created or updated by the tooling when you toggle related options; you may also 
 
 | Key | Type | Default if missing | Description |
 |-----|------|--------------------|-------------|
-| `recordingEnabled` | boolean | `true` | When `false`, Event Monitor’s IL Post-Processor **does not** rewrite assemblies for that compile. No automatic SUB/UNSUB/INVOKE injection from ILPP. |
+| `recordingEnabled` | boolean | `true` | When `false`, Event Monitor's IL Post-Processor **does not** rewrite assemblies for that compile. No automatic SUB/UNSUB/INVOKE injection from ILPP. |
 | `ilppDiagnosticsEnabled` | boolean | `false` | When `true`, emits **diagnostic messages** to the Unity Console (for example per-assembly injection summary). |
 
 ## Examples
@@ -49,4 +49,4 @@ If the file is missing, unreadable, or a key is absent, **recording** defaults t
 
 ## See also
 
-- [ILPP diagnostics and settings](../how-to/ilpp-diagnostics)
+- [ILPP diagnostics and settings](../how-to/ilpp-diagnostics.md)

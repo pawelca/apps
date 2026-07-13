@@ -13,6 +13,8 @@
 
 The export reflects **only** rows that pass the current filters.
 
+For full session archives (all rows, metadata, time-travel offline), use [Session save/load](./session-save-load.md).
+
 ## Formats (overview)
 
 | Format | Typical use |
@@ -24,4 +26,4 @@ The export reflects **only** rows that pass the current filters.
 
 ## See also
 
-- [Filtering and missing INVOKE rows](./filtering-and-missing-invoke)
+- [Filtering and missing INVOKE rows](./filtering-and-missing-invoke.md)

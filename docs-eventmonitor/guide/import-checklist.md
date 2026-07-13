@@ -1,7 +1,8 @@
-# Import checklist (legacy asset export path)
+# Import checklist (Asset Store / legacy asset export)
 
-Use this checklist only when you install EventMonitor via **asset export/import** instead of UPM.
-For normal installation, prefer [Installation](./installation) via UPM (dependencies are automatic).
+Use this checklist when you install Event Monitor via **Unity Asset Store** or **`.unitypackage` import** instead of UPM.
+
+For UPM installation (dependencies automatic), see [Installation](./installation.md).
 
 ## 1) Add required package dependency
 
@@ -32,7 +33,7 @@ If import still behaves unexpectedly:
 - enable ILPP diagnostics in Event Monitor
 - check Unity Console for per-assembly injection summary
 
-See [ILPP diagnostics and settings](../how-to/ilpp-diagnostics).
+See [ILPP diagnostics and settings](../how-to/ilpp-diagnostics.md).
 
 ## 4) Smoke-test behavior
 
