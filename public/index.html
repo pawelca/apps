@@ -58,6 +58,10 @@
       background: linear-gradient(135deg, #0d4f3c 0%, #0d8b4d 55%, #12a362 100%);
     }
 
+    .app-card.addressables-leak-detector .app-icon {
+      background: linear-gradient(135deg, #d9480f 0%, #f08c00 55%, #ffa94d 100%);
+    }
+
     .app-title {
       font-size: 24px;
       font-weight: 600;
@@ -155,6 +159,19 @@
         <p class="app-description">
           Unity Editor tool: automatic tracing of C# event subscriptions, unsubscriptions,
           and invocations — Redux-style timeline, live subscribers, and time travel. No manual instrumentation.
+        </p>
+        <div class="app-links">
+          <span class="app-link">Documentation →</span>
+        </div>
+      </a>
+
+      <!-- Addressables Leak Detector -->
+      <a href="addressables-leak-detector/" class="app-card addressables-leak-detector">
+        <div class="app-icon">🔍</div>
+        <h2 class="app-title">Addressables Leak Detector</h2>
+        <p class="app-description">
+          Unity Editor tool: find forgotten Addressables.Release calls — live handle list
+          with file:line origins, scene-survivor heuristics, and ILPP call-site capture. No manual instrumentation.
         </p>
         <div class="app-links">
           <span class="app-link">Documentation →</span>

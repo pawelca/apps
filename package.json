@@ -6,8 +6,14 @@
     "docs:dev": "vitepress dev docs-eventmonitor",
     "docs:build": "vitepress build docs-eventmonitor",
     "docs:preview": "vitepress preview docs-eventmonitor",
-    "docs:search": "pagefind --site public/eventmonitor",
-    "docs:build:all": "npm run docs:build && npm run docs:search"
+    "docs:em:dev": "vitepress dev docs-eventmonitor",
+    "docs:em:build": "vitepress build docs-eventmonitor",
+    "docs:em:preview": "vitepress preview docs-eventmonitor",
+    "docs:ald:dev": "vitepress dev docs-addressables-leak-detector",
+    "docs:ald:build": "vitepress build docs-addressables-leak-detector",
+    "docs:ald:preview": "vitepress preview docs-addressables-leak-detector",
+    "docs:search": "pagefind --site public/eventmonitor && pagefind --site public/addressables-leak-detector",
+    "docs:build:all": "npm run docs:em:build && npm run docs:ald:build && npm run docs:search"
   },
   "devDependencies": {
     "pagefind": "^1.3.0",

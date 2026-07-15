@@ -1,6 +1,6 @@
 # Apps site
 
-This repository hosts the landing page, legal/support pages for mobile apps, and **Event Monitor** documentation (Unity Editor tool).
+This repository hosts the landing page, legal/support pages for mobile apps, and documentation for Unity Editor tools (**Event Monitor**, **Addressables Leak Detector**).
 
 **Live at:** [https://pawelca.github.io/apps/](https://pawelca.github.io/apps/)
 
@@ -8,7 +8,7 @@ This repository hosts the landing page, legal/support pages for mobile apps, and
 
 ## Event Monitor documentation
 
-Professional documentation (English) for **Event Monitor** lives in [`docs-eventmonitor/`](./docs-eventmonitor/) and is built with [VitePress](https://vitepress.dev/). The published site is served under **`/apps/public/eventmonitor/`** on GitHub Pages (Airflow-inspired layout: sidebar, “On this page”, local search, light/dark).
+Professional documentation (English) for **Event Monitor** lives in [`docs-eventmonitor/`](./docs-eventmonitor/) and is built with [VitePress](https://vitepress.dev/). The published site is served under **`/apps/public/eventmonitor/`** on GitHub Pages.
 
 ### Local preview
 
@@ -16,39 +16,50 @@ Requires **Node.js 20+**.
 
 ```bash
 npm install
-npm run docs:dev
+npm run docs:em:dev
 ```
 
-Open the URL VitePress prints in the terminal (typically `http://localhost:5173/apps/public/eventmonitor/`).
-
-After a production build you can also run **`npm run docs:preview`** to serve the built output with the correct asset paths.
+Open the URL VitePress prints (typically `http://localhost:5173/apps/public/eventmonitor/`).
 
 ### Production build
-
-Writes static HTML to `public/eventmonitor/` and runs [Pagefind](https://pagefind.app/) to emit a static index under `public/eventmonitor/pagefind/` (optional). The **search field** uses VitePress **local search** (no backend).
 
 ```bash
 npm install
 npm run docs:build:all
 ```
 
-The site is built for hosting under:
+Build output: `public/eventmonitor/` and `public/addressables-leak-detector/` plus Pagefind indexes.
 
-- `https://pawelca.github.io/apps/public/eventmonitor/`
+Do not test production builds via `file:///` — use `npm run docs:em:preview` / `npm run docs:ald:preview` or deployed URLs.
 
-Do not test this build by opening `file:///.../public/eventmonitor/index.html` directly; use `npm run docs:preview` or the deployed URL above.
+---
 
-Then commit the updated `public/eventmonitor/` directory, or rely on **GitHub Actions** (see below).
+## Addressables Leak Detector documentation
 
-### CI
+Documentation for **Addressables Leak Detector** lives in [`docs-addressables-leak-detector/`](./docs-addressables-leak-detector/) and publishes to **`/apps/public/addressables-leak-detector/`**.
 
-Workflow [`.github/workflows/eventmonitor-docs.yml`](./.github/workflows/eventmonitor-docs.yml) rebuilds docs when `docs-eventmonitor/` or `package.json` changes on `main`, and commits `public/eventmonitor/`. Pushes that **only** change generated files under `public/eventmonitor/` do not retrigger the workflow (avoids loops).
+**Live URL:** [https://pawelca.github.io/apps/public/addressables-leak-detector/](https://pawelca.github.io/apps/public/addressables-leak-detector/)
 
-You can also run it manually: **Actions → Build Event Monitor docs → Run workflow**.
+### Local preview
+
+```bash
+npm install
+npm run docs:ald:dev
+```
 
 ### Content source
 
-Product copy is aligned with the Unity package marketing/technical notes (`asset_store.md` in the Event Monitor repository). This site is the **canonical** English documentation for end users browsing the web.
+Product copy syncs from `Assets/AddressablesLeakDetector/Documentation/` in the Unity package repository (shared pages only). Online-only pages: `index.md`, `guide/installation.md` (UPM/git install).
+
+---
+
+## CI
+
+Workflow [`.github/workflows/docs-sites.yml`](./.github/workflows/docs-sites.yml) rebuilds **both** doc sites when sources or `package.json` change on `main`, and commits `public/eventmonitor/` and `public/addressables-leak-detector/`.
+
+Pushes that **only** change generated files under those directories do not retrigger the workflow (avoids loops).
+
+Manual run: **Actions → Build docs sites → Run workflow**.
 
 ---
 
@@ -74,13 +85,14 @@ Speech-to-text application (pages in `public/speakify/` when enabled).
 
 ```
 apps/
-├── docs-eventmonitor/       # VitePress source (Markdown + .vitepress/)
-├── .github/workflows/       # CI (Event Monitor docs build)
-├── package.json             # docs scripts + devDependencies
-├── public/                  # GitHub Pages root
-│   ├── index.html           # Landing (NightCare, Event Monitor, …)
-│   ├── style.css
-│   ├── eventmonitor/        # Generated — VitePress + Pagefind output
+├── docs-eventmonitor/                    # Event Monitor VitePress source
+├── docs-addressables-leak-detector/      # Addressables Leak Detector VitePress source
+├── .github/workflows/docs-sites.yml      # CI — builds both doc sites
+├── package.json
+├── public/                               # GitHub Pages root
+│   ├── index.html                        # Landing (tools + mobile apps)
+│   ├── eventmonitor/                     # Generated
+│   ├── addressables-leak-detector/       # Generated
 │   ├── nightcare/
 │   └── speakify/
 └── README.md
@@ -90,19 +102,18 @@ apps/
 
 ## Deployment
 
-GitHub Pages serves the **`public/`** directory. Any push to `main` updates the live site within minutes.
+GitHub Pages serves the **`public/`** directory. After changing documentation sources:
 
-After changing documentation sources, either:
-
-- run `npm run docs:build:all` locally and commit `public/eventmonitor/`, or  
-- push source changes and let the **Build Event Monitor docs** workflow commit the output.
+- run `npm run docs:build:all` locally and commit both `public/*` outputs, or
+- push source changes and let **Build docs sites** commit the output.
 
 ---
 
 ## Design
 
 - **Landing & legal pages:** clean, mobile-first layout (shared `style.css`).
-- **Event Monitor docs:** VitePress default theme + [`custom.css`](./docs-eventmonitor/.vitepress/theme/custom.css) (documentation green accent, Airflow-style information density).
+- **Event Monitor docs:** green accent — [`docs-eventmonitor/.vitepress/theme/custom.css`](./docs-eventmonitor/.vitepress/theme/custom.css).
+- **Addressables Leak Detector docs:** amber accent — [`docs-addressables-leak-detector/.vitepress/theme/custom.css`](./docs-addressables-leak-detector/.vitepress/theme/custom.css).
 
 ---
 
